@@ -14,5 +14,9 @@ No Authentication whatsoever.
 ## Endpoints
 ### / (get)
 Hello World!
-### /getlangauge/:lang (get)
+### /getlangauge/?lang=.... (get)
 Returns a json with language file for :lang. 
+#### Example
+```bash 
+localhost:3014/getlanguage/?lang=nl-NL
+```
