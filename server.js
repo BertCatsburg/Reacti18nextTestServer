@@ -16,10 +16,13 @@ app.get('/getlanguage', async (req, res, next) => {
     try {
 
         const lang = req.query.lang
+        console.log('Entering getlanguage endpoint with a request for ' + lang);
+
         const languagefile = './languages/' + lang + '.js';
 
         await access(languagefile, constants.R_OK);
         const selectedLanguage = await import(languagefile);
+        console.log('SelectedLanguage = ');
         console.log(selectedLanguage);
         res.send(selectedLanguage.default);
 
