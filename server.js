@@ -24,7 +24,7 @@ app.get('/getlanguage', async (req, res, next) => {
         const selectedLanguage = await import(languagefile);
         console.log('SelectedLanguage = ');
         console.log(selectedLanguage);
-        res.send(selectedLanguage.default);
+        res.send(selectedLanguage.default[lang].translation);
 
     } catch (error) {
         console.error(error.message);
