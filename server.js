@@ -1,9 +1,12 @@
 const express = require('express');
 const {access} = require('fs/promises');
 const {constants} = require('fs');
+const cors = require('cors');
 
 const app = express();
 const port = 3014;
+
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -17,11 +20,12 @@ app.get('/getlanguage', async (req, res, next) => {
 
         await access(languagefile, constants.R_OK);
         const selectedLanguage = await import(languagefile);
+        console.log(selectedLanguage);
         res.send(selectedLanguage.default);
 
     } catch (error) {
         console.error(error.message);
-        const languagefile = './languages/en-US.js';
+        const languagefile = './languages/en-US.js'; // Fallback
         const selectedLanguage = await import('./languages/en-US.js');
         res.send(selectedLanguage.default);
 
