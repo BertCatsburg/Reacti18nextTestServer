@@ -22,8 +22,6 @@ app.get('/getlanguage', async (req, res, next) => {
 
         await access(languagefile, constants.R_OK);
         const selectedLanguage = await import(languagefile);
-        console.log('SelectedLanguage = ');
-        console.log(selectedLanguage);
         res.send(selectedLanguage.default[lang].translation);
 
     } catch (error) {
@@ -37,5 +35,5 @@ app.get('/getlanguage', async (req, res, next) => {
 
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Ract i18next TestServer App listening at http://localhost:${port}`)
 })
