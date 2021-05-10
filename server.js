@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-// app.get('/getlanguage', (req, res) => {
+// app.get('/getlanguage', (req, res, next) => {
 //
 // })
 app.listen(port, () => {
